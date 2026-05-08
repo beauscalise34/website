@@ -29,21 +29,21 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services/flake-epoxy" element={<FlakeEpoxy />} />
-        <Route path="/services/metallic-epoxy" element={<MetallicEpoxy />} />
-        <Route path="/services/commercial-epoxy" element={<CommercialEpoxy />} />
-        <Route path="/services/patio-outdoor" element={<PatioOutdoor />} />
+        <Route path="/services/flake-epoxy-garage-floors" element={<FlakeEpoxy />} />
+        <Route path="/services/metallic-epoxy-floors" element={<MetallicEpoxy />} />
+        <Route path="/services/commercial-warehouse-flooring" element={<CommercialEpoxy />} />
+        <Route path="/services/patio-outdoor-coatings" element={<PatioOutdoor />} />
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/cypress-tx" element={<CityCypress />} />
-        <Route path="/katy-tx" element={<CityKaty />} />
-        <Route path="/the-woodlands-tx" element={<CityWoodlands />} />
-        <Route path="/spring-tx" element={<CitySpring />} />
-        <Route path="/sugar-land-tx" element={<CitySugarLand />} />
-        <Route path="/tomball-tx" element={<CityTomball />} />
+        <Route path="/locations/cypress-tx" element={<CityCypress />} />
+        <Route path="/locations/katy-tx" element={<CityKaty />} />
+        <Route path="/locations/the-woodlands-tx" element={<CityWoodlands />} />
+        <Route path="/locations/spring-tx" element={<CitySpring />} />
+        <Route path="/locations/sugar-land-tx" element={<CitySugarLand />} />
+        <Route path="/locations/tomball-tx" element={<CityTomball />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

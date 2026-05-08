@@ -1,94 +1,171 @@
 import { Link } from 'react-router-dom'
 
-export default function Footer() {
-  const year = new Date().getFullYear()
+const services = [
+  { label: 'Flake Epoxy Garage Floors', href: '/services/flake-epoxy-garage-floors' },
+  { label: 'Metallic Epoxy Floors', href: '/services/metallic-epoxy-floors' },
+  { label: 'Commercial & Warehouse', href: '/services/commercial-warehouse-flooring' },
+  { label: 'Patio & Outdoor Coatings', href: '/services/patio-outdoor-coatings' },
+]
 
-  const linkStyle: React.CSSProperties = {
-    color: '#858481',
-    fontFamily: "'Source Sans 3', sans-serif",
-    fontSize: '0.9rem',
-    display: 'block',
-    marginBottom: '0.5rem',
-    transition: 'color 0.15s',
-  }
+const locations = [
+  { label: 'Cypress TX', href: '/locations/cypress-tx' },
+  { label: 'Katy TX', href: '/locations/katy-tx' },
+  { label: 'The Woodlands TX', href: '/locations/the-woodlands-tx' },
+  { label: 'Spring TX', href: '/locations/spring-tx' },
+  { label: 'Sugar Land TX', href: '/locations/sugar-land-tx' },
+  { label: 'Tomball TX', href: '/locations/tomball-tx' },
+  { label: 'Pearland TX', href: '/contact' },
+]
 
+const company = [
+  { label: 'About Us', href: '/about' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact Us', href: '/contact' },
+  { label: 'Free Estimate', href: '/contact' },
+]
+
+const mutedLink: React.CSSProperties = {
+  display: 'block',
+  color: 'oklch(55% .01 260)',
+  fontSize: '0.875rem',
+  textDecoration: 'none',
+  paddingTop: '0.3rem',
+  paddingBottom: '0.3rem',
+  transition: 'color 0.15s',
+  fontFamily: "'Source Sans 3', sans-serif",
+}
+
+function FooterLink({ to, label }: { to: string; label: string }) {
   return (
-    <footer style={{ background: '#0a0b0e', borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '3.5rem' }}>
+    <Link
+      to={to}
+      style={mutedLink}
+      onMouseEnter={e => (e.currentTarget.style.color = 'white')}
+      onMouseLeave={e => (e.currentTarget.style.color = 'oklch(55% .01 260)')}
+    >
+      {label}
+    </Link>
+  )
+}
+
+function ColHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <p style={{
+      fontFamily: "'Barlow Condensed', sans-serif",
+      fontWeight: 600,
+      letterSpacing: '0.25em',
+      textTransform: 'uppercase',
+      fontSize: '0.65rem',
+      color: 'oklch(78% .14 85)',
+      marginBottom: '0.75rem',
+    }}>{children}</p>
+  )
+}
+
+export default function Footer() {
+  return (
+    <footer style={{
+      background: 'oklch(9% .005 260)',
+      borderTop: '1px solid oklch(100% 0 0 / 0.08)',
+      paddingTop: '4rem',
+      paddingBottom: '2rem',
+    }}>
       <div className="container">
+        {/* 4-col grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '3rem',
-          paddingBottom: '3rem',
-          borderBottom: '1px solid rgba(255,255,255,0.07)',
-        }}>
-          {/* Col 1: Logo + info */}
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '2.5rem 2rem',
+        }}
+          className="md:grid-cols-4"
+        >
+          {/* Col 1 - Brand */}
           <div>
-            <Link to="/" style={{ display: 'inline-flex', flexDirection: 'column', lineHeight: 1.1, marginBottom: '1rem' }}>
-              <span style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, fontSize: '1.35rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#f8f8f7' }}>
-                APEX <span style={{ color: '#ecbd3a' }}>EPOXY</span>
+            <Link to="/" style={{ textDecoration: 'none', display: 'inline-block' }}>
+              <span style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, fontSize: '1.1rem' }}>
+                <span style={{ color: 'white' }}>APEX EPOXY</span>
               </span>
-              <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '0.65rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#858481', fontWeight: 600 }}>
-                SURFACE SYSTEMS
-              </span>
+              <br />
+              <span style={{
+                fontFamily: "'Barlow Condensed', sans-serif",
+                fontWeight: 600,
+                fontSize: '0.6rem',
+                letterSpacing: '0.25em',
+                textTransform: 'uppercase',
+                color: 'oklch(78% .14 85)',
+              }}>SURFACE SYSTEMS</span>
             </Link>
-            <p style={{ color: '#858481', fontSize: '0.9rem', marginBottom: '1.25rem', lineHeight: 1.6 }}>
-              Locally owned epoxy flooring contractor serving Cypress, TX and Greater Houston. Founders on every job.
+            <p style={{ color: 'oklch(55% .01 260)', fontSize: '0.875rem', marginTop: '0.75rem', fontFamily: "'Source Sans 3', sans-serif" }}>
+              Cypress, TX 77429 &amp; 77433
             </p>
-            <p style={{ color: '#858481', fontSize: '0.9rem', marginBottom: '0.4rem' }}>
-              📍 Cypress, TX 77429 &amp; 77433
-            </p>
-            <a href="tel:7132014005" style={{ color: '#ecbd3a', fontSize: '0.95rem', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+            <a href="tel:7132014005" style={{ color: 'white', fontSize: '0.875rem', display: 'block', marginTop: '0.25rem', textDecoration: 'none', fontFamily: "'Source Sans 3', sans-serif" }}>
               (713) 201-4005
             </a>
-            <a href="mailto:hadenmcdade@apexepoxytx.com" style={{ color: '#858481', fontSize: '0.85rem' }}>
+            <a href="mailto:hadenmcdade@apexepoxytx.com" style={{ color: 'oklch(55% .01 260)', fontSize: '0.8rem', display: 'block', marginTop: '0.25rem', textDecoration: 'none', fontFamily: "'Source Sans 3', sans-serif" }}>
               hadenmcdade@apexepoxytx.com
             </a>
+            <p style={{ color: 'oklch(78% .14 85)', fontSize: '0.875rem', marginTop: '1rem', fontStyle: 'italic', fontFamily: "'Source Sans 3', sans-serif" }}>
+              Founder-led. Warranty-backed.
+            </p>
           </div>
 
-          {/* Col 2: Services + Company */}
+          {/* Col 2 - Services */}
           <div>
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#f8f8f7', marginBottom: '1rem' }}>
-              Services
-            </p>
-            <Link to="/services/flake-epoxy" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Flake Epoxy Garage Floors</Link>
-            <Link to="/services/metallic-epoxy" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Metallic Epoxy Floors</Link>
-            <Link to="/services/commercial-epoxy" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Commercial Epoxy</Link>
-            <Link to="/services/patio-outdoor" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Patio &amp; Outdoor</Link>
-
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#f8f8f7', marginBottom: '1rem', marginTop: '1.5rem' }}>
-              Company
-            </p>
-            <Link to="/about" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>About Us</Link>
-            <Link to="/faq" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>FAQ</Link>
-            <Link to="/blog" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Blog</Link>
-            <Link to="/contact" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Contact / Free Estimate</Link>
+            <ColHeading>Services</ColHeading>
+            {services.map(s => <FooterLink key={s.href} to={s.href} label={s.label} />)}
           </div>
 
-          {/* Col 3: Cities */}
+          {/* Col 3 - Service Areas */}
           <div>
-            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#f8f8f7', marginBottom: '1rem' }}>
-              Areas We Serve
-            </p>
-            <Link to="/cypress-tx" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Cypress, TX</Link>
-            <Link to="/katy-tx" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Katy, TX</Link>
-            <Link to="/the-woodlands-tx" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>The Woodlands, TX</Link>
-            <Link to="/spring-tx" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Spring, TX</Link>
-            <Link to="/sugar-land-tx" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Sugar Land, TX</Link>
-            <Link to="/tomball-tx" style={linkStyle} onMouseEnter={e => (e.currentTarget.style.color = '#ecbd3a')} onMouseLeave={e => (e.currentTarget.style.color = '#858481')}>Tomball, TX</Link>
-            <p style={{ color: '#858481', fontSize: '0.85rem', marginTop: '1rem', lineHeight: 1.5 }}>
-              + All of Greater Houston
-            </p>
+            <ColHeading>Service Areas</ColHeading>
+            {locations.map(l => <FooterLink key={l.href + l.label} to={l.href} label={l.label} />)}
+          </div>
+
+          {/* Col 4 - Company */}
+          <div>
+            <ColHeading>Company</ColHeading>
+            {company.map(c => <FooterLink key={c.href + c.label} to={c.href} label={c.label} />)}
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div style={{ padding: '1.5rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-          <p style={{ color: '#858481', fontSize: '0.8rem' }}>
-            © {year} Apex Epoxy &amp; Surface Systems · Cypress, TX · All Rights Reserved
+        {/* Warranty box */}
+        <div style={{
+          marginTop: '2.5rem',
+          border: '1px solid oklch(78% .14 85 / 0.3)',
+          padding: '1rem',
+          background: 'oklch(11% .005 260)',
+        }}>
+          <p style={{
+            fontFamily: "'Barlow Condensed', sans-serif",
+            fontWeight: 600,
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            fontSize: '0.7rem',
+            color: 'oklch(78% .14 85)',
+            marginBottom: '0.25rem',
+          }}>10-YEAR WARRANTY</p>
+          <p style={{ color: 'white', fontSize: '0.875rem', fontFamily: "'Source Sans 3', sans-serif" }}>
+            Every job backed by our written warranty.
           </p>
-          <p style={{ color: '#858481', fontSize: '0.8rem' }}>
-            License #: TX Contractor · Serving 77429 &amp; 77433
+        </div>
+
+        {/* Bottom bar */}
+        <div style={{
+          borderTop: '1px solid oklch(100% 0 0 / 0.08)',
+          marginTop: '2rem',
+          paddingTop: '1.5rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '0.5rem',
+        }}>
+          <p style={{ color: 'oklch(40% .005 260)', fontSize: '0.7rem', fontFamily: "'Source Sans 3', sans-serif" }}>
+            &copy; {new Date().getFullYear()} Apex Epoxy &amp; Surface Systems. All rights reserved.
+          </p>
+          <p style={{ color: 'oklch(40% .005 260)', fontSize: '0.7rem', fontFamily: "'Source Sans 3', sans-serif" }}>
+            apexepoxytx.com
           </p>
         </div>
       </div>
