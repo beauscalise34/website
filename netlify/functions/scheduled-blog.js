@@ -5,7 +5,7 @@ import axios from 'axios'
 export const handler = schedule('0 15 * * 1', async () => {
   try {
     const baseUrl = process.env.URL || 'http://localhost:8888'
-    const res = await axios.post(`${baseUrl}/.netlify/functions/write-blog`)
+    const res = await axios.post(`${baseUrl}/.netlify/functions/write-blog-background`)
     console.log('Scheduled blog result:', res.data)
     return { statusCode: 200 }
   } catch (err) {
