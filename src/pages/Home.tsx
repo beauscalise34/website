@@ -22,6 +22,7 @@ const services = [
     desc: 'Full-broadcast vinyl flake system with 100% solids base coat, anti-slip aggregate, and UV-stable polyaspartic top coat. The gold standard for residential garages.',
     href: '/services/flake-epoxy-garage-floors',
     gradient: 'linear-gradient(135deg, #1a1505 0%, #2d2208 100%)',
+    image: '/images/garage-after.jpeg',
   },
   {
     label: 'SHOWROOM FINISH',
@@ -29,6 +30,7 @@ const services = [
     desc: 'One-of-a-kind 3D marble and liquid-metal effects. Every floor is completely unique — the ultimate showpiece for homeowners who demand the best.',
     href: '/services/metallic-epoxy-floors',
     gradient: 'linear-gradient(135deg, #0a0a14 0%, #1a1a2e 100%)',
+    image: '',
   },
   {
     label: 'INDUSTRIAL GRADE',
@@ -36,6 +38,7 @@ const services = [
     desc: 'OSHA-compliant, chemical-resistant epoxy systems for warehouses, auto shops, retail, and industrial spaces. Built for heavy traffic and minimal downtime.',
     href: '/services/commercial-warehouse-flooring',
     gradient: 'linear-gradient(135deg, #0a0f0a 0%, #0f1a0f 100%)',
+    image: '/images/commercial-after.jpeg',
   },
   {
     label: 'OUTDOOR SURFACES',
@@ -43,6 +46,7 @@ const services = [
     desc: 'Slip-resistant, UV-stable coatings built to handle Texas heat, rain, and temperature extremes. Pool decks, patios, walkways, and more.',
     href: '/services/patio-outdoor-coatings',
     gradient: 'linear-gradient(135deg, #0f0a05 0%, #1a0f00 100%)',
+    image: '',
   },
 ]
 
@@ -231,9 +235,13 @@ export default function Home() {
                   height: 160,
                   background: s.gradient,
                   flexShrink: 0,
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
                   className="md:w-64 md:h-auto"
-                />
+                >
+                  {s.image && <img src={s.image} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }} />}
+                </div>
                 {/* Content */}
                 <div style={{ flex: 1, padding: '1.5rem' }} className="md:p-7">
                   <span className="label-text" style={{ marginBottom: '0.4rem' }}>{s.label}</span>
@@ -289,18 +297,19 @@ export default function Home() {
               {
                 label: 'BEFORE',
                 caption: 'Stained concrete — oil spots & surface damage',
-                gradient: 'linear-gradient(160deg, #1a1510 40%, #0d0c09 100%)',
+                src: '/images/garage-before.jpeg',
               },
               {
                 label: 'AFTER',
                 caption: 'Multicolor flake epoxy with polyaspartic top coat',
-                gradient: 'linear-gradient(160deg, #1a1205 40%, #2a1e08 100%)',
+                src: '/images/garage-after.jpeg',
               },
             ].map(p => (
-              <div key={p.label} style={{ height: 256, position: 'relative', background: p.gradient }}>
+              <div key={p.label} style={{ height: 256, position: 'relative', overflow: 'hidden' }}>
+                <img src={p.src} alt={`${p.label} — ${p.caption}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <span style={{
                   position: 'absolute', top: 8, left: 8,
-                  background: 'oklch(100% 0 0 / 0.1)',
+                  background: 'oklch(0% 0 0 / 0.55)',
                   border: '1px solid oklch(100% 0 0 / 0.2)',
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 600,
@@ -311,9 +320,10 @@ export default function Home() {
                 }}>{p.label}</span>
                 <span style={{
                   position: 'absolute', bottom: 10, left: 10,
-                  color: 'oklch(95% .005 65 / 0.45)',
+                  color: 'white',
                   fontSize: '0.7rem',
                   fontFamily: "'Source Sans 3', sans-serif",
+                  textShadow: '0 1px 4px rgba(0,0,0,0.7)',
                 }}>{p.caption}</span>
               </div>
             ))}
@@ -325,19 +335,20 @@ export default function Home() {
             {[
               {
                 label: 'BEFORE',
-                caption: 'Old tile & grout lines',
-                gradient: 'linear-gradient(160deg, #141414 40%, #0a0a0a 100%)',
+                caption: 'Old tile floor — prepped for coating',
+                src: '/images/commercial-before.jpeg',
               },
               {
                 label: 'AFTER',
                 caption: 'Glossy black commercial epoxy — seamless finish',
-                gradient: 'linear-gradient(160deg, #050508 40%, #090912 100%)',
+                src: '/images/commercial-after.jpeg',
               },
             ].map(p => (
-              <div key={p.label} style={{ height: 256, position: 'relative', background: p.gradient }}>
+              <div key={p.label} style={{ height: 256, position: 'relative', overflow: 'hidden' }}>
+                <img src={p.src} alt={`${p.label} — ${p.caption}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <span style={{
                   position: 'absolute', top: 8, left: 8,
-                  background: 'oklch(100% 0 0 / 0.1)',
+                  background: 'oklch(0% 0 0 / 0.55)',
                   border: '1px solid oklch(100% 0 0 / 0.2)',
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 600,
@@ -348,9 +359,10 @@ export default function Home() {
                 }}>{p.label}</span>
                 <span style={{
                   position: 'absolute', bottom: 10, left: 10,
-                  color: 'oklch(95% .005 65 / 0.45)',
+                  color: 'white',
                   fontSize: '0.7rem',
                   fontFamily: "'Source Sans 3', sans-serif",
+                  textShadow: '0 1px 4px rgba(0,0,0,0.7)',
                 }}>{p.caption}</span>
               </div>
             ))}
