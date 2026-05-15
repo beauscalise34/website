@@ -329,7 +329,25 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Project 2 */}
+          {/* Project 2 — Before & After flake epoxy */}
+          <span className="label-text" style={{ marginBottom: '1rem' }}>GARAGE FLOOR — FLAKE EPOXY</span>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <img src="/images/before-after-flake-1.jpeg" alt="Before and after — bare concrete to flake epoxy finish" style={{ width: '100%', height: 256, objectFit: 'cover' }} />
+          </div>
+
+          {/* Project 3 — Before & After flake epoxy */}
+          <span className="label-text" style={{ marginBottom: '1rem' }}>GARAGE FLOOR — STAINED CONCRETE TO FLAKE</span>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <img src="/images/before-after-flake-2.jpeg" alt="Before and after — stained concrete to gray flake epoxy" style={{ width: '100%', height: 256, objectFit: 'cover' }} />
+          </div>
+
+          {/* Project 4 — Before & After flake epoxy */}
+          <span className="label-text" style={{ marginBottom: '1rem' }}>GARAGE FLOOR — CRACKED CONCRETE TO FLAKE</span>
+          <div style={{ marginBottom: '2.5rem' }}>
+            <img src="/images/before-after-flake-3.png" alt="Before and after — cracked concrete to flake epoxy finish" style={{ width: '100%', height: 256, objectFit: 'cover' }} />
+          </div>
+
+          {/* Project 5 */}
           <span className="label-text" style={{ marginBottom: '1rem' }}>COMMERCIAL RETAIL FLOOR — CYPRESS, TX</span>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
             {[

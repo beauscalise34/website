@@ -48,6 +48,25 @@ export default function MetallicEpoxy() {
         </div>
       </section>
 
+      {/* Gallery */}
+      <section style={{ padding: '5rem 0', background: CARD_ALT }}>
+        <div className="container">
+          <span className="label-text">OUR WORK</span>
+          <h2 style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', color: 'white', textTransform: 'uppercase', marginBottom: '2rem' }}>
+            METALLIC EPOXY GALLERY
+          </h2>
+          <div style={{ height: 400, position: 'relative', overflow: 'hidden' }}>
+            <img src="/images/metallic-blue.png" alt="Metallic epoxy floor with black and blue swirl pattern" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <span style={{
+              position: 'absolute', bottom: 12, left: 12,
+              color: 'white', fontSize: '0.8rem',
+              fontFamily: "'Source Sans 3', sans-serif",
+              textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+            }}>Charcoal &amp; blue metallic epoxy — high-gloss mirror finish</span>
+          </div>
+        </div>
+      </section>
+
       {/* What Is It */}
       <section style={{ padding: '5rem 0' }}>
         <div className="container" style={{ maxWidth: 860 }}>
