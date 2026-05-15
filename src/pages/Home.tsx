@@ -30,7 +30,7 @@ const services = [
     desc: 'One-of-a-kind 3D marble and liquid-metal effects. Every floor is completely unique — the ultimate showpiece for homeowners who demand the best.',
     href: '/services/metallic-epoxy-floors',
     gradient: 'linear-gradient(135deg, #0a0a14 0%, #1a1a2e 100%)',
-    image: '/images/metallic-epoxy.jpeg',
+    image: '/images/metallic-blue.png',
   },
   {
     label: 'INDUSTRIAL GRADE',
@@ -46,7 +46,7 @@ const services = [
     desc: 'Slip-resistant, UV-stable coatings built to handle Texas heat, rain, and temperature extremes. Pool decks, patios, walkways, and more.',
     href: '/services/patio-outdoor-coatings',
     gradient: 'linear-gradient(135deg, #0f0a05 0%, #1a0f00 100%)',
-    image: '/images/outdoor-patio.jpeg',
+    image: '/images/driveway-coating.png',
   },
 ]
 

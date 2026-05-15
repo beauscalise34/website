@@ -49,12 +49,6 @@ export default function PatioOutdoor() {
           </h2>
           <div style={{ height: 400, position: 'relative', overflow: 'hidden' }}>
             <img src="/images/driveway-coating.png" alt="Coated driveway with warm brown finish" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            <span style={{
-              position: 'absolute', bottom: 12, left: 12,
-              color: 'white', fontSize: '0.8rem',
-              fontFamily: "'Source Sans 3', sans-serif",
-              textShadow: '0 1px 4px rgba(0,0,0,0.7)',
-            }}>Driveway coating — UV-stable polyaspartic finish</span>
           </div>
         </div>
       </section>
